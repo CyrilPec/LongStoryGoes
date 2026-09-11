@@ -55,6 +55,8 @@ PYTHON + ENGLISH
 ----------------
 Python defines what the world CAN DO.
 English describes what the world MEANS.
+Python is not an implementation detail of the story.
+Python is the executable form of the story's actions.
 Do not add unnecessary empty lines.
 Code should be written compactly where possible, like sentences,
 to reduce scrolling without sacrificing readability.
