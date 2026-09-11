@@ -39,6 +39,7 @@ The 000-XX.py files define reusable concepts.
 000-11.py    Action
 000-12.py    State
 000-13.py    Memory
+000-14.py    Knowledge
 
 
 Concept files define what something is and what it can do.
