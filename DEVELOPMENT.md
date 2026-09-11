@@ -34,3 +34,5 @@ An AI assistant working on this repository must:
 
 15. Before changing architecture, explain what existing behavior would
     be affected.
+
+    When a story requires behavior that does not belong to a general concept, the story may extend or specialize an existing concept rather than modifying the base concept. If the specialization proves generally useful across multiple stories, it may later be promoted into a reusable concept.
