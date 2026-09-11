@@ -50,3 +50,5 @@ Reusable concept
 Story-local implementation
         vs
 External adapter
+
+Use 017.py to improve Observer, Memory, and Knowledge so the concepts—not the story—own more of the behavior, while keeping every existing story working.
