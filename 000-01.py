@@ -1,57 +1,45 @@
 """
 000-01.py — The World
-
-The World is created once.
-
-Everything that happens later exists inside this World.
-Story files do not create a new world.
-They continue the existing one.
 """
-
-from dataclasses import dataclass, field
-from typing import Any
-
-
-@dataclass
 class World:
     """
-    The persistent conceptual world.
+    Conceptual definition of a world.
 
-    The World contains:
-    - entities
-    - places
-    - objects
-    - relationships
-    - events
-    - time
-    - state
+    A World has:
+        - time
+        - entities
+        - places
+        - objects
+        - relationships
+        - history
 
-    A story is an observation/change of this world,
-    not a replacement for it.
+    Stories may instantiate this concept, inherit from it,
+    or extend it with their own rules.
     """
 
-    time: float = 0.0
+    def __init__(self, time=0.0):
+        self.time = time
 
-    entities: dict[str, Any] = field(default_factory=dict)
-    places: dict[str, Any] = field(default_factory=dict)
-    objects: dict[str, Any] = field(default_factory=dict)
+        self.entities = {}
+        self.places = {}
+        self.objects = {}
 
-    relationships: list[dict[str, Any]] = field(default_factory=list)
-    history: list[dict[str, Any]] = field(default_factory=list)
+        self.relationships = []
+        self.history = []
 
-    def add_entity(self, entity_id: str, entity: Any):
+    def add_entity(self, entity_id, entity):
         self.entities[entity_id] = entity
         return entity
 
-    def add_place(self, place_id: str, place: Any):
+    def add_place(self, place_id, place):
         self.places[place_id] = place
         return place
 
-    def add_object(self, object_id: str, obj: Any):
+    def add_object(self, object_id, obj):
         self.objects[object_id] = obj
         return obj
 
-    def get(self, entity_id: str):
+    def get(self, entity_id):
         if entity_id in self.entities:
             return self.entities[entity_id]
 
@@ -63,8 +51,9 @@ class World:
 
         raise KeyError(f"Unknown world entity: {entity_id}")
 
-    def record(self, event: dict[str, Any]):
+    def record(self, event):
         self.history.append(event)
 
-    def advance(self, amount: float):
+    def advance(self, amount):
         self.time += amount
+
