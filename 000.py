@@ -637,3 +637,9 @@ another presentation system
 Those systems consume the world created by the story.
 They should not make the story more complicated.
 """
+ """
+LongStoryGoes vocabulary may grow with its stories.
+
+A story can introduce a new meaning before that meaning
+becomes a shared concept.
+"""
