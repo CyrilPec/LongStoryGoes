@@ -352,4 +352,39 @@ These are currently story-level implementations/experiments.
 
 They may later become reusable concepts if future stories demonstrate
 that they belong in the general model.
+ Language and Concept Evolution
 
+LongStoryGoes does not need a complete vocabulary of actions and concepts in advance.
+
+A story may introduce a word, expression, action, or combination of existing concepts when the story requires it.
+
+Natural language itself provides useful patterns:
+
+teach → teacher
+observe → observer
+remember → memory
+class + room → classroom
+
+
+LongStoryGoes may similarly allow concepts and vocabulary to emerge through stories.
+
+A new word should initially remain local when possible. When the same meaning appears repeatedly across stories, it may be promoted into a reusable concept.
+
+The direction is:
+
+story
+  ↓
+new meaning
+  ↓
+new word or combination
+  ↓
+repeated use
+  ↓
+reusable concept
+
+
+Concepts should therefore evolve from stories rather than being designed completely in advance.
+
+A compound or derived concept should preserve the meaning of the concepts from which it emerged.
+
+The goal is not to make Python automatically invent arbitrary methods. The goal is to allow the vocabulary of LongStoryGoes to grow naturally as its worlds and stories become more expressive.
