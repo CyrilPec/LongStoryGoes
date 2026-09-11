@@ -201,3 +201,22 @@ write the next story
 
 
 Do not solve an engine problem by making the story more complicated.
+ Emerging Vocabulary
+
+Do not add a new global concept merely because one story needs a new word.
+
+A story may use a local concept when appropriate.
+
+If the same behavior or meaning appears in several stories, consider promoting it into the shared concept vocabulary.
+
+Prefer:
+
+story → experiment → repetition → concept
+
+
+over:
+
+design everything → force stories to use it
+
+
+New concepts may arise through natural language, derivation, or combinations of existing concepts. Their implementation should remain subordinate to the meaning expressed by the story.
