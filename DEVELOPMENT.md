@@ -52,3 +52,46 @@ Story-local implementation
 External adapter
 
 Use 017.py to improve Observer, Memory, and Knowledge so the concepts—not the story—own more of the behavior, while keeping every existing story working.
+
+ Story Files
+
+A story file should remain a story.
+
+Keep story files short, readable, and executable. Prefer natural world actions such as:
+
+teacher.enter(classroom)
+anna.push(leo)
+leo.fall(chair)
+teacher.look_at(chair)
+
+
+Do not repeat executable actions in English:
+
+"""
+Anna pushes Leo.
+"""
+anna.push(leo)
+
+
+The Python action is already the sentence.
+
+English remains useful for meaning that is not an executable action: description, context, thought, uncertainty, atmosphere, memory, and narrative.
+
+The complexity required to execute an action belongs in the LongStoryGoes concepts and engine, not inside the story file.
+
+A story author should not need to write Action, Event, validation, renderer, Blender, API, or other infrastructure code merely to tell a story.
+
+The goal is:
+
+short story
+    ↓
+readable Python
+    ↓
+LongStoryGoes world
+    ↓
+optional presentation
+
+
+Story files should become simpler as the engine becomes more capable, not more complicated.
+
+When a new story requires a new capability, improve the underlying concept or engine and keep the story itself simple.
