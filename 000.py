@@ -173,3 +173,426 @@ The world is a main character.
 The map emerges from the story.
 """
 
+ """
+
+
+
+LongStoryGoes
+=============
+
+000 — The idea
+
+
+This project starts with a simple question:
+
+Can a story be written so that it is both ordinary English for a human
+to read and Python that a computer can understand and use?
+
+This is not meant to be a normal game engine.
+
+It is an experiment.
+
+The important part is the combination of English and Python in the same
+file.
+
+The English tells us what the world means.
+
+Python tells us what the world can do.
+
+Neither should completely replace the other.
+
+
+THE CENTRAL IDEA
+----------------
+
+A LongStoryGoes file should still feel like a story when a human opens it.
+
+For example:
+
+    The old door stood at the end of the corridor.
+
+    door = PhysicalObject("old door")
+
+    The door was closed.
+
+    Anna walked toward the door.
+
+The exact Python syntax may change as the project develops.
+
+What matters is the idea:
+
+    English describes the story.
+    Python gives the story structure, behaviour, memory and possibility.
+
+The goal is NOT to turn the English into a collection of database records.
+
+The goal is to discover how much of a living story can naturally exist
+inside a Python file.
+
+
+IMPORTANT
+---------
+
+LongStoryGoes is an experiment in writing stories that are simultaneously
+readable English and executable Python.
+
+The English is not merely output from the program, and Python is not merely
+a game engine underneath it.
+
+They are two views of the same story/world.
+
+
+PLEASE DO NOT TURN THIS INTO A NORMAL GAME ENGINE
+-------------------------------------------------
+
+Do not replace the readable story with dictionaries, JSON-like schemas,
+databases, or a separate simulation merely because they are easier to
+program.
+
+Do not assume that every piece of English must become a structured object.
+
+Do not assume that everything needs to be formalised before a story can
+be written.
+
+Do not assume that the current concepts are the final architecture.
+
+The project should remain free to discover better ideas in later files.
+
+If a later story needs something that does not exist yet, that is useful.
+
+The new file can experiment.
+
+A concept can be changed.
+
+A new concept can appear.
+
+The idea is more important than the current architecture.
+
+
+FIVE SIMPLE CONCEPTS
+--------------------
+
+The following five concepts are a useful way to understand the project.
+
+They are NOT a rigid architecture.
+
+They are simply a map.
+
+1. WORLD
+
+The World is the fictional reality shared by the story.
+
+It contains whatever actually exists in that story:
+
+people, animals, objects, places, time, relationships, events and states.
+
+The World is not Blender.
+
+The World is not the console.
+
+The World is not the narrator's prose.
+
+Those are ways of experiencing or presenting the World.
+
+
+2. ENTITY
+
+An Entity is something that exists in the World.
+
+A human can be an Entity.
+
+An animal can be an Entity.
+
+A physical object can be an Entity.
+
+A place can be treated as an Entity when the story needs to refer to it.
+
+The exact boundaries are intentionally open to experimentation.
+
+
+3. STATE
+
+An Entity can have a State.
+
+A door can be closed.
+
+A person can be tired.
+
+A fire can be burning.
+
+A bridge can be broken.
+
+State is what is true about something at a particular moment.
+
+A story becomes interesting when states can change.
+
+
+4. EVENT
+
+An Event is something that actually happens in the World.
+
+Anna may attempt to open a door.
+
+If she succeeds, the door opening is an Event.
+
+The Event can change State.
+
+An Event can have a time, a place, an actor and a target.
+
+An Action and an Event should not automatically be treated as the same thing.
+
+An Action can be an attempt.
+
+An Event is something that actually happened.
+
+This distinction may become important later for a PC or AI.
+
+
+5. OBSERVER
+
+An Observer is something that experiences or knows only some part of
+the World.
+
+A human reader, a character, or a future PC may have an observation.
+
+The World may contain more information than one Observer knows.
+
+This makes it possible for two characters to exist in the same World while
+having different knowledge of it.
+
+The Narrator can then describe the story for the reader.
+
+Narration is not necessarily the same thing as reality.
+
+Observation is not necessarily the same thing as the whole World.
+
+
+THE FIVE CONCEPTS ARE A LENS, NOT A CAGE
+----------------------------------------
+
+World, Entity, State, Event and Observer are useful because they simplify
+the way we think about the project.
+
+But later files are allowed to challenge this model.
+
+For example:
+
+    Is Time part of the World or something different?
+
+    Is a Relationship an Entity or a fact between Entities?
+
+    Is Memory part of an Observer?
+
+    Is an Action a special kind of Event, or something that exists before
+    an Event?
+
+These questions are not mistakes.
+
+They are part of the experiment.
+
+The concept files 000-01.py, 000-02.py and so on explore such questions.
+
+They should be read as experiments and thoughts, not as a rigid specification.
+
+
+NARRATOR
+--------
+
+The Narrator communicates the story to the reader.
+
+The Narrator does not have to be the World.
+
+The Narrator can describe:
+
+    what happened,
+    what is happening,
+    what an Observer sees,
+    what a character remembers,
+    or what the story means.
+
+This distinction allows the same World to eventually be presented in
+different ways:
+
+    English
+    another language
+    console text
+    TUI
+    audio
+    visualisation
+    or something not yet imagined.
+
+
+HUMAN AND PC
+------------
+
+A long-term question of LongStoryGoes is whether a human and a PC/AI
+can participate in the same story.
+
+They should not need separate realities.
+
+The human reads the story.
+
+The PC reads the story.
+
+The World underneath them is the same.
+
+The PC may observe, remember, reason, propose an Action, or participate
+in an Event.
+
+But the PC should not simply be allowed to declare a new reality because
+its generated text says that something happened.
+
+What actually happens must remain consistent with the World and its history.
+
+This does NOT mean building a conventional game engine.
+
+It means exploring what happens when a story itself becomes partly
+executable.
+
+
+THE PYTHON FILE
+---------------
+
+The .py file is an important part of the experiment.
+
+It is simultaneously:
+
+    a text file,
+    a story,
+    Python code,
+    a possible World description,
+    and potentially input for other tools.
+
+A person should be able to open it and read the English.
+
+Python should be used where it gives the story something useful:
+
+    identity,
+    behaviour,
+    state,
+    time,
+    relationships,
+    memory,
+    events,
+    actions,
+    persistence,
+    or visual information.
+
+But there should be no requirement that every sentence become Python.
+
+Freedom of expression is part of the experiment.
+
+
+CONSOLE
+-------
+
+When a story file is run directly, the console can be a simple reader.
+
+For example:
+
+    $ python 016.py
+
+    Rain tapped softly against the old window.
+
+    Luna wandered into the quiet room.
+
+    She curled up beside the window and listened to the rain.
+
+The console is not necessarily a debugging tool.
+
+It can simply be another way to experience the story.
+
+The same underlying story may later be visualised.
+
+
+VISUALISATION
+-------------
+
+v1_importer.py is one possible bridge from the Python story to a visual
+representation.
+
+It should not become the definition of what a story is.
+
+The World should not exist merely because Blender can display it.
+
+Instead:
+
+    Story / World
+          |
+          +---- human reading
+          |
+          +---- console
+          |
+          +---- PC / AI
+          |
+          +---- visualisation
+          |
+          +---- future forms of presentation
+
+
+HOW TO READ THE REST OF THE REPOSITORY
+--------------------------------------
+
+Start here.
+
+Then read the concept files.
+
+Then read the numbered story experiments.
+
+Do not assume that the newest file is automatically more correct.
+
+A later experiment may discover that an earlier idea was better.
+
+A small story that exposes a weakness is valuable.
+
+A new concept should appear because a story needs it, not because an
+architecture diagram says that it should exist.
+
+
+THE MOST IMPORTANT RULE
+-----------------------
+
+Keep the idea alive.
+
+Do not optimise it away.
+
+Do not make it conventional merely because conventional software
+architecture is easier.
+
+The project is trying to discover something.
+
+The discovery is more important than having a perfect architecture today.
+
+
+ONE LAST EXAMPLE
+----------------
+
+Imagine a story says:
+
+    The glass fell from Anna's hand and shattered on the floor.
+
+For a human, this is simply a sentence.
+
+For LongStoryGoes, it may also mean:
+
+    an Event happened,
+    the glass changed State,
+    Anna was the actor,
+    the floor was the Place,
+    time advanced,
+    Anna may remember it,
+    another Observer may have seen it,
+    and the broken glass may still exist when the story continues.
+
+The interesting question is not:
+
+    "How do we build a game engine that handles this?"
+
+The interesting question is:
+
+    "How much of this can remain a natural story while Python gives
+     the computer enough understanding to make it real?"
+
+
+That is LongStoryGoes.
+"""
