@@ -95,3 +95,109 @@ optional presentation
 Story files should become simpler as the engine becomes more capable, not more complicated.
 
 When a new story requires a new capability, improve the underlying concept or engine and keep the story itself simple.
+ Story Files
+
+Story files are the primary interface of LongStoryGoes.
+
+Keep them short, readable, and executable.
+
+Prefer natural actions:
+
+teacher.enter(classroom)
+anna.push(leo)
+leo.step_back()
+chair.fall()
+teacher.look_at(chair)
+
+
+Do not repeat an executable action in English:
+
+"""
+Anna pushes Leo.
+"""
+anna.push(leo)
+
+
+The Python action is already the sentence.
+
+English should be used when it adds meaning that is not itself an executable action, such as description, context, thought, uncertainty, atmosphere, memory, or narrative.
+
+Complexity belongs in the engine
+
+A story author should not need to implement:
+
+Action resolution
+Event handling
+Validation
+Persistence
+Physics
+Blender integration
+APIs
+AI integration
+Rendering
+
+inside a story file.
+
+If a story requires a new capability, improve the underlying LongStoryGoes concepts or engine instead.
+
+The story should become simpler as the engine becomes more capable.
+
+Natural verbs
+
+Story actions should read naturally:
+
+anna.push(leo)
+leo.fall(chair)
+teacher.look_at(chair)
+
+
+Avoid exposing infrastructure in story syntax:
+
+world.execute_action(...)
+engine.resolve(...)
+renderer.handle(...)
+
+
+Those are engine responsibilities.
+
+Adapters
+
+Blender, AI, TUI, audio, APIs, and other systems consume the world.
+
+They should not define the story syntax.
+
+The direction is:
+
+Story
+  ↓
+World
+  ↓
+Events / State / History
+  ↓
+Adapters
+
+
+not:
+
+Story
+  ↓
+Adapter
+  ↓
+World
+
+Development loop
+
+When a story exposes a missing capability:
+
+write story
+    ↓
+discover missing capability
+    ↓
+improve the engine
+    ↓
+keep the story simple
+    ↓
+write the next story
+
+
+Do not solve an engine problem by making the story more complicated.
