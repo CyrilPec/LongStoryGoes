@@ -36,3 +36,11 @@ An AI assistant working on this repository must:
     be affected.
 
     When a story requires behavior that does not belong to a general concept, the story may extend or specialize an existing concept rather than modifying the base concept. If the specialization proves generally useful across multiple stories, it may later be promoted into a reusable concept.
+
+Improve existing concepts when the improvement is genuinely general.
+
+Add a new concept when the behavior represents a reusable concept.
+
+Let stories subclass/extend concepts when behavior is specific to that story.
+
+Promote story-specific extensions into reusable concepts only when experience shows that they belong in the general model.
