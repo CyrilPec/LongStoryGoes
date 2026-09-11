@@ -327,3 +327,28 @@ Renderers decide how the audience experiences them.
 :::
 
 This is the document I'd commit now. It gives another AI enough context to **continue the project rather than redesign it**.
+
+Story-local concepts
+
+A story may define its own specialized classes when a behavior is
+needed only for that story or is still experimental.
+
+A story-local class does not automatically become a global concept.
+
+If the same abstraction proves useful across multiple stories, it may
+later be promoted into a reusable 000-XX.py concept.
+
+Promotion is evolutionary, not mandatory.
+
+Example:
+
+    012.py
+        Character
+        Location
+        PhysicsAdapter
+
+These are currently story-level implementations/experiments.
+
+They may later become reusable concepts if future stories demonstrate
+that they belong in the general model.
+
