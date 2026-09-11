@@ -44,3 +44,9 @@ Add a new concept when the behavior represents a reusable concept.
 Let stories subclass/extend concepts when behavior is specific to that story.
 
 Promote story-specific extensions into reusable concepts only when experience shows that they belong in the general model.
+
+Reusable concept
+        vs
+Story-local implementation
+        vs
+External adapter
