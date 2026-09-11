@@ -1,45 +1,35 @@
 """
 000-05.py — Narrator
 
-Conceptual definition of a narrator.
+The Narrator describes what happens in a story.
 
-A Narrator communicates what happens in a story
-to an audience. It does not define how the story
-is rendered.
+Narration is separate from observation:
+    World → Narrator → Narration
 
-The same narration can later be rendered as:
-- text
-- TUI
-- audio
-- another presentation format
+The narrator may describe things that no individual character knows.
 """
 
 
 class Narrator:
-    """
-    Concept of a narrator.
+    def __init__(self, name=None):
+        self.name = name
+        self.narrations = []
 
-    A Narrator observes the story and communicates
-    narration to the audience.
-    """
+    def narrate(self, text):
+        """
+        Add a piece of narration.
 
-    def __init__(self, story):
-        self.story = story
+        Returns the text so simple existing stories can continue
+        using the result directly.
+        """
+        self.narrations.append(text)
+        return text
 
-    def observe(self, text):
-        """
-        Add narration to the story.
-        """
-        return self.story.observe(text)
+    def all_narrations(self):
+        return list(self.narrations)
 
-    def describe(self, text):
-        """
-        Describe something for the audience.
-        """
-        return self.story.observe(text)
+    def last_narration(self):
+        if not self.narrations:
+            return None
 
-    def say(self, text):
-        """
-        Narrate spoken text.
-        """
-        return self.story.observe(text)
+        return self.narrations[-1]
