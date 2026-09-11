@@ -598,3 +598,42 @@ The interesting question is:
 
 That is LongStoryGoes.
 """
+ """
+LongStoryGoes
+
+A story file is both readable story and executable world description.
+
+Python expresses actions that can happen in the world.
+
+English expresses meaning that does not need to be executable:
+description, context, thought, uncertainty, atmosphere, memory,
+and narrative.
+
+Do not repeat an executable action in English.
+
+For example:
+
+anna.push(leo)
+
+
+is already the story sentence.
+
+The implementation of an action belongs to the LongStoryGoes
+engine, not to the story file.
+
+A story should therefore remain short and readable even when
+the underlying world becomes more sophisticated.
+
+The same story may later be consumed by:
+
+a human reader
+an AI
+a simulation
+a TUI
+an audio narrator
+a Blender importer
+another presentation system
+
+Those systems consume the world created by the story.
+They should not make the story more complicated.
+"""
