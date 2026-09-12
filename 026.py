@@ -1,96 +1,113 @@
 """
-026.py — First Workshop Experiment
-Tests whether the authoritative physical World can create and connect objects.
+026.py — Nail and Wood Experiment
+Tests the first material interaction in the Workshop.
 
-The experiment proposes actions.
-The World decides whether those actions are real.
+The experiment proposes physical actions.
+The World validates and executes them.
+
+A successful connection must be supported by physical state and
+material interaction rules. The experiment itself cannot declare success.
 """
 
-from importlib.util import module_from_spec, spec_from_file_location
-
+import importlib.util
 from pathlib import Path
 
-from workshop_026 import Workshop
 
-
-def load_world():
-    path = Path(__file__).with_name("000-01-01.py")
-    spec = spec_from_file_location("physical_world", path)
+def load_module(filename: str, module_name: str):
+    path = Path(__file__).with_name(filename)
+    spec = importlib.util.spec_from_file_location(module_name, path)
 
     if spec is None or spec.loader is None:
-        raise ImportError("Cannot load 000-01-01.py")
+        raise ImportError(f"Cannot load {filename}")
 
-    module = module_from_spec(spec)
+    module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
-    return module.World
+    return module
 
 
 def run_experiment() -> None:
-    World = load_world()
+    world_module = load_module("000-01-01.py", "physical_world")
+    workshop_module = load_module("026+01.py", "workshop")
+
+    World = world_module.World
+    Workshop = workshop_module.Workshop
 
     world = World()
     workshop = Workshop()
 
     try:
         print("=" * 72)
-        print("026 — FIRST WORKSHOP EXPERIMENT")
+        print("026 — NAIL AND WOOD EXPERIMENT")
         print("=" * 72)
 
-        print("\nCreating first plank through the World.")
+        plank = workshop.make_plank("plank_01")
+        nail = workshop.make_nail("nail_01")
+
+        print("\nMaterial properties:")
+        print(workshop.material_properties("wood"))
+        print(workshop.material_properties("steel"))
+
+        print("\nCreating wood through the authoritative World:")
 
         result = world.act(
             "anna",
             "create_physical",
-            target="plank_01",
-            parameters=workshop.create_spec(
-                "wood_plank",
-                "plank_01",
+            target=plank.id,
+            parameters=workshop.object_spec(
+                plank.id,
                 (0.0, 0.0, 1.0),
             ),
         )
 
         print(result)
 
-        print("\nCreating second plank through the World.")
+        print("\nCreating nail through the authoritative World:")
 
         result = world.act(
             "anna",
             "create_physical",
-            target="plank_02",
-            parameters=workshop.create_spec(
-                "wood_plank",
-                "plank_02",
-                (0.0, 0.0, 1.21),
+            target=nail.id,
+            parameters=workshop.object_spec(
+                nail.id,
+                (0.0, 0.0, 1.12),
             ),
         )
 
         print(result)
 
-        print("\nAttempting physical connection.")
+        print("\nAttempting to connect nail and wood:")
 
         result = world.act(
             "anna",
             "connect_physical",
-            target="plank_01",
+            target=nail.id,
             parameters={
-                "other": "plank_02",
-                "max_distance": 0.25,
+                "other": plank.id,
+                "max_distance": 0.15,
+                "interaction": "fastener",
+                "tool": "hammer",
+                "material_properties": {
+                    "fastener_material": workshop.material_properties("steel"),
+                    "target_material": workshop.material_properties("wood"),
+                    "tool": workshop.tool_properties("hammer"),
+                },
             },
         )
 
         print(result)
 
         print("\nAuthoritative physical state:")
-
         print(world.state())
 
-        print("\nExperiment history:")
-
+        print("\nHistory:")
         for event in world.history:
             print(event)
 
-        print("\nThe experiment does not decide whether the connection happened.")
-        print("The World decides.")
+        print("\nExperiment conclusion:")
+        if result["ok"]:
+            print("The World accepted the proposed physical interaction.")
+        else:
+            print("The World rejected the proposed physical interaction.")
 
     finally:
         world.close()
