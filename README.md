@@ -1,4 +1,4 @@
-LongStoryGoes
+# LongStoryGoes
 
 Simple concepts. Indefinite possibilities.
 
@@ -61,7 +61,6 @@ other future systems
 The story does not need to become more complicated for these possibilities to exist.
 
 The principle
-
 LongStoryGoes keeps the story simple and lets the concepts underneath it grow only when necessary.
 
 English + Python
@@ -74,7 +73,5 @@ English + Python
        ↓
   Any interpretation
 
-
 The goal is not to build a complicated language.
-
 The goal is to see how far simple concepts can go.
